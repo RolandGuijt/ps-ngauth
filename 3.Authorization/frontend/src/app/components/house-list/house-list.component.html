@@ -1,0 +1,26 @@
+<div>
+  <div class="row mb-2">
+    <h5 class="themeFontColor text-center">Houses currently on the market</h5>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Country</th>
+        <th>Asking Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (house of houses(); track house.id) {
+        <tr [routerLink]="['/house', house.id]">
+          <td>{{ house.address }}</td>
+          <td>{{ house.country }}</td>
+          <td>{{ house.price }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  @if (authorizationService.canAddHouse()) {
+    <button class="btn btn-primary" (click)="addHouse()">Add</button>
+  }
+</div>

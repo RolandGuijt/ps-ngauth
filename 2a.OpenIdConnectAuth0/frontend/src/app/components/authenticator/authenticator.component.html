@@ -1,0 +1,16 @@
+@if (userClaims()) {
+  @if (authenticated()) {
+    <div>
+      Hi {{ nameClaim() }} !
+      <div>
+        <a class="mt-3 btn btn-secondary btn-sm" href="/account/logout">
+          Log out
+        </a>
+      </div>
+    </div>
+  } @else {
+    <a class="btn btn-primary" href="/account/Login">Log in</a>
+  }
+} @else {
+  <a class="btn btn-primary" href="/account/Login">Log in</a>
+}
