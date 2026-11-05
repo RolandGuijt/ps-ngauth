@@ -14,13 +14,15 @@ export class AuthenticatorComponent {
   private http = inject(HttpClient);
 
   userClaims = toSignal(
-    this.http.get<UserClaim[]>('/account/getUserClaims?slide=false'),
+    this.http.get<UserClaim[]>(
+      '/account/getUserClaims?slide=false'),
     { initialValue: undefined }
   );
 
   nameClaim = computed(() => {
     const claims = this.userClaims();
-    const claim = claims?.find((c) => c.type === 'name');
+    const claim = claims?.find(
+      (c) => c.type === 'name');
     return claim ? claim.value : '';
   });
 

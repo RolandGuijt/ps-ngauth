@@ -30,7 +30,7 @@ builder.Services.AddBff(o => o.ManagementBasePath = "/account")
         //Store in application secrets
         o.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0";
         o.ResponseType = "code";
-        o.SaveTokens = true;
+        //o.SaveTokens = true;
         //options.GetClaimsFromUserInfoEndpoint = true;
     })
     .AddServerSideSessions();
@@ -39,7 +39,7 @@ builder.Services.AddAuthentication(o =>
 {
     o.DefaultScheme = BffAuthenticationSchemes.BffCookie;
     o.DefaultChallengeScheme = BffAuthenticationSchemes.BffOpenIdConnect;
-    o.DefaultSignOutScheme = BffAuthenticationSchemes.BffOpenIdConnect;
+    //o.DefaultSignOutScheme = BffAuthenticationSchemes.BffOpenIdConnect;
 });
 
 var app = builder.Build();

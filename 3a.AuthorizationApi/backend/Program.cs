@@ -29,6 +29,7 @@ builder.Services.AddBff(o => o.ManagementBasePath = "/account")
         o.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0";
         o.ResponseType = "code";
         o.SaveTokens = true;
+        o.Scope.Add("roles");
         o.Scope.Add("globoapi");
         o.Scope.Add("authapi");
         o.Scope.Add("offline_access");

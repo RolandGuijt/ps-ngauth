@@ -16,6 +16,9 @@ public class AccountController(UserRepository userRepository) : Controller
     {
         foreach (var claim in User.Claims)
             yield return new UserClaim { Type = claim.Type, Value = claim.Value };
+        var sub = User.Claims.First(c => c.Type == "sub").Value;
+        foreach (var authzItem in userRepository.GetAuthzData(sub))
+            yield return new UserClaim { Type = authzItem.Type, Value = authzItem.Value };
     }
 
     public IActionResult Login() => View(new LoginModel());

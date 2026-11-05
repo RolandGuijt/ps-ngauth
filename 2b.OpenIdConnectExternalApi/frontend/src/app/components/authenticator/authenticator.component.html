@@ -1,4 +1,4 @@
-@if (userClaims()) {
+
   @if (authenticated()) {
     <div>
       Hi {{ nameClaim() }} !
@@ -11,6 +11,3 @@
   } @else {
     <a class="btn btn-primary" href="/account/Login">Log in</a>
   }
-} @else {
-  <a class="btn btn-primary" href="/account/Login">Log in</a>
-}

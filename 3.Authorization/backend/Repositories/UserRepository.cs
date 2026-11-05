@@ -9,9 +9,20 @@ public class UserRepository
         new UserModel
         {
             Id = 3522, Name = "Roland", Password = "K7gNU3sdo+OL0wNhqoVWhr3g6s1xYv72ol/pe/Unols=", //= "secret"
-            FavoriteColor = "blue", Role = "User", GoogleId = "101517359495305583936"
+            FavoriteColor = "blue", Role = "Admin", GoogleId = "101517359495305583936"
         }
     ];
+
+        private List<UserAuthZ> userAuthZs =
+    [
+        new UserAuthZ { UserId = "3522", Type = "department", Value = "HR" },
+    ];
+
+    public IEnumerable<UserAuthZ> GetAuthzData(string userId)
+    {
+        return userAuthZs
+            .Where(us => us.UserId == userId);
+    }
 
     public UserModel? GetByUsernameAndPassword(string username, string password)
     {

@@ -7,9 +7,9 @@ import {AuthorizationService} from "./services/authorization.service";
 export const routes: Routes = [
   { path: '', component: HouseListComponent },
   { path: 'house/:id',
-  component: HouseComponent,
-  canActivate: [
-    (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
-      inject(AuthorizationService).canSeeHouseDetails(),
-    ],
+    component: HouseComponent,
+    canActivate: [
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
+        inject(AuthorizationService).canSeeHouseDetails(),
+      ],
   }];
